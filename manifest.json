@@ -1,0 +1,25 @@
+{
+    "name": "MCDA IndexedDB in PWA Assignment - Todo App",
+    "short_name": "PWA Todo",
+    "description": "A mini Todo App!",
+    "start_url": "/",
+    "scope": ".",
+    "display": "standalone",
+    "background_color": "#FFFFFF",
+    "theme_color": "#EEEEEE",
+    "orientation": "portrait",
+    "dir": "ltr",
+    "lang": "en-CA",
+    "icons": [
+        {
+            "src": "/smu-icon-96x96.png",
+            "sizes": "96x96",
+            "type": "image/png"
+        },
+        {
+            "src": "/smu-icon-192x192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        }
+    ]
+}
