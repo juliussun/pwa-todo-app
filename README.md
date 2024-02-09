@@ -1,4 +1,4 @@
-# MCDA Just Do
+# MCDA Just Do It
 
 This app showcases the combined usage of **IndexedDB** and **localStorage** for a PWA todo app in modern web browsers.
 
@@ -28,4 +28,4 @@ As a PWA app, it doesn't require internet connection, and can be downloaded as a
 
 ## Important Note
 
-- **Don't just List it, just do it:** Currently there is no functionality to get the listed items done on your behalf.
+- **Don't just list it, just do it:** Currently there is no functionality to get the listed items done on your behalf.
