@@ -6,7 +6,7 @@ var db = new Dexie("ToDoDatabase");
  * indexes on the properties "name" and "city".
  */
 db.version(1).stores({
-  todos: "++id, todo, date",
+  todos: "++id, todo, date, priority",
 });
 
 /**
@@ -26,9 +26,9 @@ function getAllTodosFromDB() {
 /**
  * Adds a new student record to the database.
  */
-function addTodoToDB(todo, date) {
+function addTodoToDB(todo, date, priority) {
   return db.todos
-    .put({ todo, date })
+    .put({ todo, date, priority })
     .then(id => { return id })
     .catch((err) => {
       alert("Ouch... " + err);

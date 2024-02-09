@@ -1,20 +1,21 @@
-# IndexedDB
+# MCDA Just Do
 
-This app showcases the use of **IndexedDB**, a powerful tool for storing data in modern web browsers. It features a student list management system, utilizing the capabilities of IndexedDB to store and retrieve student data.
+This app showcases the combined usage of **IndexedDB** and **localStorage** for a PWA todo app in modern web browsers.
 
-## Key Features of IndexedDB
+## Key Features of MCDA Just Do It
 
-- **Transactional Key-Value Database**: IndexedDB operates as a transactional database in the browser. If one action in a transaction fails, none of the actions in that transaction are applied.
-- **Unstructured Data Storage**: Capable of storing a significant amount of unstructured data, including files and blobs.
-- **Asynchronous Access**: IndexedDB can be accessed asynchronously, making it suitable for use in service workers for enhanced PWA (Progressive Web App) functionalities.
+- **Offline Access**:
+As a PWA app, it doesn't require internet connection, and can be downloaded as a standalone app.
 
-## Application Overview
+-**ToDo item display** List all ToDo items in a list, with display of relevant information such as due date, priority, and done button.
 
-- The app is set up as a Progressive Web App, complete with service worker registration for offline support and faster load times.
-- Dynamically displays a list of students, allowing users to add new students through a simple form. The student data is immediately saved to IndexedDB and displayed on the page.
-- Uses [`Dexie.js`](https://dexie.org/)for easy and efficient interaction with IndexedDB.
+- **Priority and Due Date** User can add Priority and Due Date upon creation.
 
-![screenshot of the students app](./assets/screenshot-students.png)
+- **Rely on IndexedDB for backend database** Use IndexedDB as a database for better asynchronous access and more versatile capability. localStorage is used as a buffer for a more fluent and reactive web experience.
+
+## Application
+
+![screenshot of the students app](./assets/screenshot.png)
 
 ## Running the Application
 
@@ -27,4 +28,4 @@ This app showcases the use of **IndexedDB**, a powerful tool for storing data in
 
 ## Important Note
 
-- **Unique Student IDs:** When entering student data, be aware that the "Student #" is used as the unique `id` in the IndexedDB. If two students are entered with the same "Student #", the existing student data will be overwritten.
+- **Don't just List it, just do it:** Currently there is no functionality to get the listed items done on your behalf.

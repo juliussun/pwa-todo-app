@@ -25,9 +25,17 @@
         <input type="text" id="todo" name="todo" placeholder="Enter Todo...">
 
         <label for="todo">Due Date</label>
-        <input type="datetime-local" id="date" name="date" placeholder="Due Date">
+        <input type="datetime-local" id="date" name="date" placeholder="">
 
-        <input type="submit" value="Add Todo, Get it Done">
+        <label for="todo">Priority</label>
+        <select name="priority" id="priority">
+            <option value=""></option>
+            <option value="high">high</option>
+            <option value="normal">normal</option>
+            <option value="low">low</option>
+        </select>
+
+        <input type="submit" value="Add new todo, get it Done">
     </form>
 
     <hr />

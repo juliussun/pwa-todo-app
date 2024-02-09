@@ -24,6 +24,7 @@ async function main() {
   const form = document.querySelector('form');
   const todoInput = document.querySelector("[name='todo']");
   const dateInput = document.querySelector("[name='date']");
+  const priorityInput = document.querySelector("[name='priority']");
   const todoList = document.getElementById('todos');
 
   // Retrieve existing todos, ensure we only have one source of truth: indexedDB
@@ -44,15 +45,17 @@ async function main() {
     event.preventDefault();
     const todo = todoInput.value;
     const date = dateInput.value;
+    const priority = priorityInput.value;
 
     try {
-      const id = await addTodoToDB(todo, date); // Add todo to the database and get the id
-      const newTodo = { id, todo, date };
+      const id = await addTodoToDB(todo, date, priority); // Add todo to the database and get the id
+      const newTodo = { id, todo, date, priority };
       todoData.push(newTodo);
       localStorage.setItem('todos', JSON.stringify(todoData));
       displayTodo(newTodo, todoData, todoList); // Display the new todo
       todoInput.value = ''; //clear value in the input fields
       dateInput.value = ''; //
+      priorityInput.value = ''; //
     } catch (error) {
       console.error(error);
     }
@@ -82,16 +85,33 @@ function displayTodo(t, todoData, todoList) {
   h3.textContent = t.todo;
   const p = document.createElement('p');
   p.textContent = formatDateTime(t.date);
+  const g = document.createElement('span');
+  g.textContent = t.priority;
+  switch (t.priority.toLowerCase()) {
+    case 'normal':
+      g.classList.add('priority-normal');
+      break;
+    case 'high':
+      g.classList.add('priority-high');
+      break;
+    case 'low':
+      g.classList.add('priority-low');
+      break;
+    default:
+      console.warn('Unknown priority:', t.priority);
+      // Optionally handle unknown priority
+  }
 
   const removeBtn = document.createElement('button');
-  removeBtn.textContent = 'Done/Remove';
+  removeBtn.textContent = 'Done';
   removeBtn.classList.add('remove-todo');
   
-  div.append(h3, p, removeBtn);
+  div.append(h3, p, g, removeBtn);
   todoList.appendChild(div);
 
   const idParagraph = document.createElement('p');
   idParagraph.textContent = `#${t.id}`;
+  idParagraph.classList.add('index');
   div.prepend(idParagraph);
 
   setUpRemoveFunction(removeBtn, div, t.id, todoData);
@@ -109,7 +129,7 @@ function formatDateTime(isoString) {
   const formattedDate = `${month}/${day}/${year}`;
   const formattedTime = timePart; // time format as 'HH:MM'
 
-  return `due ${formattedDate} ${formattedTime}`;
+  return `DUE ${formattedDate} ${formattedTime}`;
 }
 
 // Initialize service worker and main application logic

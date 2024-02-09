@@ -13,16 +13,25 @@ body {
   flex-grow: 1; /* Allow body to grow and occupy available space */
   padding: 10px; /* Your desired padding */
   box-sizing: border-box; /* Make sure padding and border are included in the total width and height */
+  background-color: white;
+  font-family: "Goudy Bookletter 1911", sans-serif;
 }
 
 .header {
   display: flex;
   gap: 20px;
   padding: 20px;
+  background: -webkit-linear-gradient(left, rgb(120, 19, 19), rgb(204, 113, 16)); /* For WebKit browsers */
+  background: linear-gradient(to right, rgb(168, 34, 34), rgb(230, 202, 23)); /* Standard syntax */
+  -webkit-background-clip: text; /* For WebKit browsers */
+  background-clip: text;
+  color: transparent; /* Make the text color transparent to show the background */
+  -webkit-text-fill-color: transparent; /* For WebKit browsers */
 }
 
 label {
   margin: 10px 5px;
+  font-family: sans-serif;
 }
 
 form {
@@ -56,6 +65,7 @@ input[type="submit"] {
   background-color: #751e2b;
   color: white;
   padding: 14px 20px;
+  margin-top: 20px;
   margin: 8px 0;
   border: none;
   border-radius: 4px;
@@ -70,7 +80,7 @@ input[type="submit"]:hover {
   display: flex;
   align-items: center; /* Aligns items vertically in the center */
   justify-content: space-between; /* Distributes space between items */
-  background-color: #f7f3f3;
+  background-color: #ffffff;
   border-radius: 5px;
   padding: 10px 20px;
   line-height: 15px;
@@ -88,14 +98,16 @@ input[type="submit"]:hover {
 .todo p {
   margin: 0 10px 0 0; /* Adds some margin on the right */
   white-space: nowrap;
-  margin-right: 20px;
+  margin-right: 10px;
+  font-size: x-small;
+  font-weight: 300;
 }
 
 .remove-todo {
   background-color: #751e2b;
   color: white;
-  padding: 14px 20px;
-  margin: 8px 0;
+  padding: 8px 10px;
+  margin: 10px;
   border: none;
   border-radius: 4px;
   cursor: pointer;
@@ -112,4 +124,35 @@ footer {
 .checked {
   color:#555;
   text-decoration: line-through;
+}
+
+span{
+  width: 60px;
+  text-align: center;
+  color: white;
+  padding: 8px 4px;
+  border-radius: 4px;
+  margin: 10px;
+}
+
+.priority-normal {
+  background-color: rgba(0, 128, 0, 0.137);
+
+}
+
+.priority-high {
+  background-color: rgba(255, 0, 0, 0.219);
+}
+
+.priority-low {
+  background-color: rgba(0, 0, 255, 0.26);
+}
+
+.index {
+  width: 30px;
+  text-align: left;
+  color: rgb(120, 26, 7);
+  padding: 8px 4px;
+  border-radius: 4px;
+  margin-right: 5px;
 }
